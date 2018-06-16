@@ -2,6 +2,7 @@ clear
 clc
 format compact;
 format short;
+
 g=(-9.81);
 hprompt =('enter y-intercept: ');
 wprompt =('enter x-intercept: ');
@@ -13,11 +14,12 @@ y= polyfit(x0,y0,1);
 dy = polyder(y);
 fun = @(xn)(sqrt(1+(dy)^2))./(sqrt(2*g*(polyval(y,xn)-h)));
 t=integral(fun,0,w,'ArrayValued',true);
+
 plot(x0,y)
 grid
 xlabel('x')
 ylabel('y')
-title('Position Function for Shortest Time')
+title('Partical Mostion for Shortest Distance')
 fprintf('\n');
 fprintf('Shortest possible time:  t= %.5f seconds\n',t);
 fprintf('\n');
